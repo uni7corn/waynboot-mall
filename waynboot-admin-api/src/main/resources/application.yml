@@ -24,6 +24,11 @@ spring:
     admin:
       client:
         url: http://127.0.0.1:89/boot-admin
+  task:
+    scheduling:
+      pool:
+        size: 4
+      thread-name-prefix: wayn-scheduler-
 
 
 # token配置
@@ -75,3 +80,16 @@ wayn:
   uploadDir: ${UPLOAD_DIR:D:/waynshop/webp}
   adminUrl: http://localhost:81
   mobileUrl: http://localhost:82
+  schedule:
+    trade:
+      # 默认值在 TradeScheduleProperties，这里仅保留可调项作为运维入口
+      stock-snapshot:
+        cron: 0 */5 * * * *
+        limit: 500
+        bucket-count: 1
+      inventory-reconcile:
+        cron: 0 0 * * * *
+        limit: 500
+        repair: true
+      payment-reconcile:
+        cron: 0 0 2 * * *
