@@ -21,11 +21,6 @@ spring:
     default-property-inclusion: non_null # 接口返回字段值为null的属性不展示
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-  boot:
-    admin:
-      client:
-        url: http://localhost:89/boot-admin
-
 # token配置
 token:
   # 令牌自定义标识
@@ -67,15 +62,5 @@ wayn:
   mobileUrl: ${MOBILE_URL:http://localhost:82}
   freightLimit: "0"  # 运费限额
   freightPrice: "0"  # 运费
-  unpaidOrderCancelDelayTime: 30 # 未支付订单超时时间
+  unpaidOrderCancelDelayTime: 1 # 未支付订单超时时间
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    logfile:
-      external-file: ${logging.file.name}
-    health:
-      show-details: always

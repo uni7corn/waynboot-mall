@@ -37,11 +37,6 @@ spring:
         max-concurrency: 1
 
 
-  boot:
-    admin:
-      client:
-        url: http://localhost:89/boot-admin
-
 # 日志配置
 logging:
   level:
@@ -50,13 +45,3 @@ logging:
   file:
     name: ${LOG_PATH_PREFIX:E:/home}/${spring.application.name}/info.log
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    logfile:
-      external-file: ${logging.file.name}
-    health:
-      show-details: always
